@@ -1,5 +1,6 @@
 var http = require('http');
 var fs = require('fs');
+console.log(process.env.PORT);
 var app = http.createServer(function(request,response){
     var url = request.url;
     if(request.url == '/'){
@@ -14,4 +15,5 @@ var app = http.createServer(function(request,response){
     response.end(fs.readFileSync(__dirname + url));
  
 });
-app.listen(3000);
+
+app.listen(process.env.PORT||3000);
